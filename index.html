@@ -34,7 +34,17 @@
     .hint { color: var(--muted); font-size: 14px; }
   </style>
 </head>
-<body>
+<script>
+  // Hier holen wir uns den Button über seine ID
+  const aboButton = document.getElementById("abo-button");
+
+  // Hier sagen wir: Wenn jemand klickt, dann soll etwas passieren
+  aboButton.addEventListener("click", function() {
+    alert("Danke fürs Abonnieren 🚀");
+  });
+</script>
+
+  <body>
   <main class="card">
     <h1>Hallo von UISY 🚀</h1>
     <p>Erstes Deployment – jetzt mit <b>Abo-Button</b> und einem Bild.</p>
