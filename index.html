@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UISY – Testdeploy</title>
+  <style>
+    :root { --bg:#0b0b10; --fg:#e9eef5; --muted:#9aa3ad; --brand:#7c5cff; --brand-2:#22c55e; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg); color: var(--fg); display: grid; min-height: 100dvh; place-items: center;
+    }
+    .card {
+      width: min(920px, 92vw); padding: 28px; border-radius: 16px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    h1 { margin: 0 0 10px; font-size: clamp(22px, 4vw, 32px); }
+    p  { margin: 0 0 18px; color: var(--muted); }
+    .hero-img {
+      width: 100%; height: auto; border-radius: 12px; display: block;
+      border: 1px solid rgba(255,255,255,0.08); margin: 12px 0 18px;
+    }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    button {
+      appearance: none; border: 0; cursor: pointer; padding: 12px 18px; border-radius: 999px;
+      font-weight: 600; font-size: 16px; transition: transform .08s ease, background .2s ease, color .2s ease;
+      background: var(--brand); color: #fff;
+    }
+    button:hover { transform: translateY(-1px); }
+    button:active { transform: translateY(0); }
+    .subscribed { background: var(--brand-2); }
+    .hint { color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Hallo von UISY 🚀</h1>
+    <p>Erstes Deployment – jetzt mit <b>Abo-Button</b> und einem Bild.</p>
+
+    <!-- Bild (kannst du später einfach die URL austauschen) -->
+    <img class="hero-img" src="https://picsum.photos/seed/uisy/900/480" alt="Beispielbild" />
+
+    <div class="row">
+      <button id="aboBtn">🔔 Abo – Klick mich</button>
+      <span id="status" class="hint">Noch nicht abonniert.</span>
+    </div>
+  </main>
+
+  <script>
+    const btn = document.getElementById('aboBtn');
+    const status = document.getElementById('status');
+    let subscribed = false;
+
+    btn.addEventListener('click', () => {
+      subscribed = !subscribed;
+      if (subscribed) {
+        btn.classList.add('subscribed');
+        btn.textContent = '✅ Abonniert';
+        status.textContent = 'Danke! Abo ist aktiv.';
+      } else {
+        btn.classList.remove('subscribed');
+        btn.textContent = '🔔 Abo – Klick mich';
+        status.textContent = 'Abo wurde wieder deaktiviert.';
+      }
+    });
+  </script>
+</body>
+</html>
